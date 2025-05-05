@@ -41,11 +41,10 @@ jobs:
           context: . # Build context is the root of the repository
           file: ./Dockerfile # Path to your Dockerfile
           push: true # Push the image to the registry
-          tags: |
+          tags: ghcr.io/${{ github.repository }}:latest
             # Tag the image with the repository owner/name and commit SHA
-            ghcr.io/${{ github.repository }}:${{ github.sha }}
+            # ghcr.io/${{ github.repository }}:${{ github.sha }}
             # Optionally, tag with 'latest' on pushes to the main branch
-            ghcr.io/${{ github.repository }}:latest
 
       # (Optional) Add a step to clean up dangling images after the build (less critical for GHCR)
       # - name: Clean up
