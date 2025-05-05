@@ -11,7 +11,7 @@ WORKDIR /app
 
 # Copy the R conversion script into the container
 # Assuming the script is named Rconversion.R and is in the specified path
-COPY SeuratConversion/withSeuratDisk/Rconversion.R ./Rconversion.R
+COPY ./withSeuratDisk/Rconversion.R ./Rconversion.R
 
 # (Optional) Copy example data if needed for testing within the container
 # COPY SeuratConversion/withRestAPI/pbmc3k_filtered_gene_bc_matrices /app/pbmc3k_example
