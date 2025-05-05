@@ -1,0 +1,20 @@
+# Use version 3 of the Docker Compose file format
+version: '3.8'
+
+services:
+  seurat-converter:
+    # Build the image using the Dockerfile in the current directory
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # Define volumes to mount local directories into the container
+    # This allows the container to access your input files and save output files
+    # Replace ./data with the path to your local data directory
+    volumes:
+      - ./data:/app/data # Mount a local 'data' directory to '/app/data' inside the container
+    # Command to override the default ENTRYPOINT (optional, for specific runs)
+    # command: ["/app/Rconversion.R", "/app/data/input.h5Seurat", "/app/data/output.h5ad"]
+    # Set a name for the container (optional)
+    container_name: seurat_converter_container
+    # Restart policy (optional)
+    restart: "no"
